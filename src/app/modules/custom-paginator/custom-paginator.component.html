@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-12 d-flex justify-content-start align-items-center paginator">
+        <div class="dropdown mt-2 mx-3">
+            Items Per Page
+            <select (change)="chagePageSize()" [formControl]="pageSizeCtrl">
+                <option [value]="size" *ngFor="let size of pageSizeOptions">{{size}}</option>
+            </select>
+        </div>
+        <div class="range mt-2 mx-3">
+            <span> Showing : </span> {{(currentPage*pageSize -pageSize)+1}} -
+            {{(currentPage * pageSize) > totalRecords ? totalRecords : (currentPage * pageSize)}} of
+            {{totalRecords}}
+        </div>
+        <div class="action mt-2 mx-3">
+            <div class="act-btn" [ngClass]="{'disabled':currentPage === 1}" (click)="changePage(0)">
+                <i class="fa  fa-angle-left"> </i> </div>
+            <div class="act-btn" [ngClass]="{'disabled':currentPage === lastPage}" (click)="changePage(1)">
+                <i class="fa  fa-angle-right"> </i>
+            </div>
+        </div>
+    </div>
+</div>

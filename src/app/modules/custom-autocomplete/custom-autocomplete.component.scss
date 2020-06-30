@@ -1,0 +1,14 @@
+.autocomplete {
+    .search {
+        width: 100%;
+        padding: 10px;
+        height: 40px;
+        border: none;
+        border-bottom: 1px solid grey;
+        background: transparent;
+    }
+
+    .link-item {
+        text-decoration: none !important;
+    }
+}
