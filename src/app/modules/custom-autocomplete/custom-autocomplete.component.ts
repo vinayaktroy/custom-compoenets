@@ -16,7 +16,7 @@ import { debounceTime, distinctUntilChanged, takeWhile } from 'rxjs/operators';
 })
 export class CustomAutocompleteComponent implements OnInit {
 
-  @Input() optionsListing =[];
+  @Input() optionsListing = [];
   searchCtrl = new FormControl('');
   optionsListingTemp;
   alive = true;
@@ -75,13 +75,20 @@ export class CustomAutocompleteComponent implements OnInit {
     });
   }
 
-  ngOnDestroy() {
-    this.alive = false;
-  }
 
   chooseOption(suggest) {
     this.searchCtrl.setValue(suggest);
     this.showListing = false;
+  }
+
+  ngOnDestroy() {
+    this.alive = false;
+  }
+
+  blurInput() {
+    setTimeout(() => {
+      this.showListing = false;
+    }, 200);
   }
 
 }

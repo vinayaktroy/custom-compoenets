@@ -1,6 +1,6 @@
 <div class="row autocomplete">
     <div class="col-12 px-0">
-        <input type="text" [formControl]="searchCtrl" class="search" placeholder="Search.." (blur)="showListing = false"
+        <input type="text" [formControl]="searchCtrl" class="search" placeholder="Search.." (blur)="blurInput()"
             (focus)="showListing = true">
     </div>
     <div class="list-group col-12 px-0 suggestion-list" *ngIf="optionsListing && showListing">
